@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fullstack-challenge-479c4",
+  "private_key_id": "897c0af18d89303e7d0e0fcfeb703abeac192a7c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCeNJzGTQXMxWA+\ne9/zjX/zEihNfL5cci5PEZsmQ05E5ydIqa/2XvppNAu1YCe8KBeu/94+pTk9yN+2\nhkwfqVEPOeEOUcnLGhs5dyMpeF6g5DfYPDnfD1B1QtVE9Uh9xchkK6k6deXsjOf3\nBkXfwM9D5E49R77pJoAR0Qg/aUAo3JzxltOUhvvYOxQDWpi1eEapWCzzCfbbOs1v\n88tw/xr/WXH5OhFMqr9YAjN7KdnzpahrJhojuTqhpN8PPA9fdosnRqzBcFfmFDTo\nKgMCV9itt9fkRnFnLIh7YRihGUTiry+OT+NQ4D+ZfkaRsLIdHi3b+i7M85wh/Isc\nBCj8X7LdAgMBAAECggEAJA4B/6hsjrUZwMu653bjRspn0HcCLC/icWcmCHOU2huj\nBoqTfU66e3DezTxnedhaQ2nxJK5DbBsELwUOwrVz8Ygji/+kQUsHEtLdutUBneG8\n/2UEXFtRXxP25kMPPQiu6XNQ2y+k0YLwV4oAsSRwJ/0XPpyD+/8n90d//XGXa2g1\nqFlr39JeMlQssSguAuMX5MiNXUPNjT9u/48exfzHmmYG43K8kkCa9BkmRp64t8aT\n3BfZyeNes7S2usV3v5mKJPJJP6v6FvSYvw1ILg247qsrjRoy1ufwrSbvuvE8C4J+\nJ5k02K0fwPd6zcwJUFW3cmDdKArMdRQhHIJgxTP5qQKBgQDchX2vnAsYBylsiggu\nRut46ELqAVR8y4EBNiv/qnlH7wTQIFm4Fj7EO3T6+08ushhxxz2etnkgYV1p+7bY\nSsJP/ooxgptzv5HUqPMc+9EZIfo/1MWxB0jB7F+xhwEVYhRGjvzWFlpdxYBOOa91\nIEvDKUjF0NpdGRb1v7kmB0FwZQKBgQC3qIuvERsWMTofH4b5Egn1yGCIr59X8XcX\nyJo6SMlWc8vrAXmL1Ov0LMTITezXGbaG/Fsd9kqNWqERGTC7Obi/YvQoW1GfqgJT\n1/Ho9qtO6nwlJPzvyEFVVpUqRhtFX4qPWmjBmZl6jrqx5ccJhKOyWKI5L9zI2yGd\nAt1kQqbFGQKBgFxwWM9UShI4blThR6yebfaw5dvR0ui9JcasPqVdgJl2yD22UeWo\n7Ya0pcTPs9GPNk/7hQkS1JOOPOpAadUhAXMm8Cbw6NkMZMUQTVjI9k3iwFQhjP04\nYHdp7nMsdHfSNU2egr37gMXuFGq2I6alcxzMIYVKlz6PVeCODb6zK+tBAoGBAIcl\njfR7n/UKsHxqlMX/0jh9BRxQL+9lDn//7A3rtczaVTpP0YNmYWNC9mN3hEsc7sYS\nOXKo5F90S4XrhYKgjSS4ynZQDJZzYlcUVz1ZFuJxhn1G5KIGOJ11ozqCcFryXWHz\n45ZjUx9unE+AiKCmbFc3BdkTMWLUbb2+d+/pZBMxAoGBAMtWmT20GCrujx9LgHDT\nnSwUEJYnYXBuzMT0V9o4QWlKlp8H1B6izDhEYiMisoUm4u/3pG+8kTwHrh549xCB\npJhZk8iiXMMzRGd9CmJjg4KzWKgqM8VdOWWX6E5sp6dSHA4wImyL8YWpFdwskjCz\nPy4xgZKmx1hjy2oZOXN/IjU+\n-----END PRIVATE KEY-----\n",
+  "client_email": "fullstack-challenge-479c4@appspot.gserviceaccount.com",
+  "client_id": "109770030637450060879",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fullstack-challenge-479c4%40appspot.gserviceaccount.com"
+}
