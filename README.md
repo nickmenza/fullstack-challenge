@@ -21,8 +21,7 @@
 
 ### sql
 * การเชื่อมต่อต้อง connect กับ ไอพีตัวเอง (http://ipv4.whatismyv6.com/)
-* root
-* 6uImit4tEEeait9i
+
 * export GOOGLE_APPLICATION_CREDENTIALS=./fullstack-challenge-479c4-897c0af18d89.json
 * export CLOUD_SQL_CONNECTION_NAME='fullstack-challenge-479c4:us-central1:fullstackchallege'
 
