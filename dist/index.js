@@ -116,11 +116,9 @@ var seletProduct = function () {
 
           case 5:
             recentVotesQuery = _context.sent;
+            return _context.abrupt("return", recentVotesQuery);
 
-
-            console.log(recentVotesQuery);
-
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -133,14 +131,40 @@ var seletProduct = function () {
   };
 }();
 
-app.get('*', function (req, res) {
-  res.send('backend run');
-  //   seletProduct()
-  //   // console.log('tet',pool1())
-  // //   res.sendFile(path.resolve(__dirname, '..', 'build', '../public/index.html'));
-  //     res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-  //   res.sendFile(path.join(__dirname + '../public/index.html'));
-});
+app.get('*', function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
+    var product;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return seletProduct();
+
+          case 2:
+            product = _context2.sent;
+
+            console.log(product[0].product_name);
+            res.send('backend run' + product[0].product_name);
+
+            //   seletProduct()
+            //   // console.log('tet',pool1())
+            // //   res.sendFile(path.resolve(__dirname, '..', 'build', '../public/index.html'));
+            //     res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+            //   res.sendFile(path.join(__dirname + '../public/index.html'));
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, undefined);
+  }));
+
+  return function (_x, _x2) {
+    return _ref2.apply(this, arguments);
+  };
+}());
 
 var PORT = process.env.PORT || 80;
 

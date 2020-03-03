@@ -26,12 +26,14 @@ let pool = connect_mysql
 // routes
 const auth = require('./routes/auth')
 const product = require('./routes/product')
+const category = require('./routes/category')
 const user = require('./routes/user')
 
 
 app.use(express.json())
 app.use('/api', auth)
 app.use('/api/product', passport.authenticate('jwt', {session: false}), product)
+app.use('/api/category', passport.authenticate('jwt', {session: false}), category)
 app.use('/api/user', passport.authenticate('jwt', {session: false}), user)
 
 

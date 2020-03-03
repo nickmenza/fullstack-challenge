@@ -34,10 +34,18 @@ class Login extends Component {
                 class : 'd-none',
                 text : '',
             },
-            errors : []
+            errors : {}
         
         }
         this.apiSend = this.apiSend.bind(this)
+        this.validate = this.validate.bind(this)
+    }
+
+    validate(form) {
+        return {
+            email: form.email.length === 0 ? 'Username field is required.' : false,
+            password: form.password.length === 0 ? 'Password field is required' : false
+        };
     }
 
     async apiSend(e) {
@@ -60,19 +68,46 @@ class Login extends Component {
         // });
 
         const form = {
-            email : this.username.value,
+            email : this.email.value,
             password : this.password.value
         }
-        console.log(form)
 
-        let res_login = await axios.post('/api/login',form);
+        const errors = this.validate(form);
+        const isDisabled = Object.keys(errors).some(x => errors[x]);
+        if(isDisabled){
+            this.setState({
+                errors : errors
+            })
+            return false
+        }else{
+            this.setState({
+                errors : {}
+            })
+        }
 
-        if(res_login.status == 200){
+        try{
+            let res_login = await axios.post('/api/login',form)
             localStorage.setItem("token", res_login.data.token);
-
             this.props.SET_USER({user : res_login.data.user})
             this.props.history.push('/product')
+            // if(res_login.status == 200){
+                
+            // }
+        }catch(error){
+            if(error.response.status == 401){
+                this.setState({
+                    alert : {
+                        class : 'alert-danger d-block',
+                        text : error.response.data.message,
+                    },
+                })
+            }
+            console.log(error,'error',error.response.status)
         }
+        
+
+        
+       
 
         // const config = { headers :{ Authorization : `bearer ${res_login.data.token}`} }
         // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1ODI5MTA1Mzh9.2BU0Pp5g1EhAj7vxAKHHT_seVsvdMSh11IoWVHe-_eM
@@ -107,7 +142,7 @@ class Login extends Component {
                         Login
                     </h4>
                     <Alert {...this.state.alert}/>
-                    <Input name="username" placeholder="Username" errors={this.state.errors}
+                    <Input name="email" placeholder="Username" errors={this.state.errors}
                     type="text"
                     setRef = {(value,input) => this[value] = input}
                     />

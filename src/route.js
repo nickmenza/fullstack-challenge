@@ -62,7 +62,6 @@ class CRoute extends Component {
       <Router>
           {this.state.loading ? 'loading...' :
           <Switch>
-              <PrivateRouteTest path="/product/create" component={Components.ProductUpdate}></PrivateRouteTest>
               <PrivateRouteTest path="/product/:id" component={Components.ProductUpdate}></PrivateRouteTest>
               <PrivateRouteTest path="/product" component={Components.Product}></PrivateRouteTest>
 

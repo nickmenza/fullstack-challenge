@@ -33,7 +33,7 @@ class Header extends Component {
     render () {
     return (
         <nav id="navbar-example2" className="navbar navbar-light bg-light">
-            <Link className="navbar-brand" to="/">E-commerce</Link>
+            <Link className="navbar-brand" to="/">ADMIN E-commerce</Link>
             <ul className="nav nav-pills">
             <li className="nav-item">
                 <Link className="nav-link" to="/">Home</Link>

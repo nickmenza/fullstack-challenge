@@ -25,9 +25,7 @@
 * 6uImit4tEEeait9i
 * export GOOGLE_APPLICATION_CREDENTIALS=./fullstack-challenge-479c4-897c0af18d89.json
 * export CLOUD_SQL_CONNECTION_NAME='fullstack-challenge-479c4:us-central1:fullstackchallege'
-* export DB_USER='root'
-* export DB_PASS='6uImit4tEEeait9i'
-* export DB_NAME='fullstack'
+
 
 * ./cloud_sql_proxy -dir=/cloudsql --instances=$CLOUD_SQL_CONNECTION_NAME --credential_file=$GOOGLE_APPLICATION_CREDENTIALS
 

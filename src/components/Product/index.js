@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import Layout from '../Layout'
 import Input from '../input'
-import Table from '../Table'
+import Table from './table'
 import Pagination from '../Pagination'
+import axios from 'axios'
 
 class Product extends Component {
   constructor(props) {
@@ -16,12 +17,44 @@ class Product extends Component {
             data :[]
           }
       }
+      this.getApi = this.getApi.bind(this)
   }
+
+  componentWillMount(){
+    this.getApi()
+  }
+
+  async getApi(){
+      // console.log(this.props)
+      let token = localStorage.getItem('token');
+      const config = { headers :{ Authorization : `bearer ${token ? token : ''}`} }
+      console.log(config)
+      try {
+          let res = await axios.get("/api/product",config);
+          // this.state.user = res.data
+          console.log(res)
+          this.setState({
+            ...this.state,
+            response : {
+              ...this.state.response,
+              data : res.data,
+            },
+            loading : false
+
+          })
+          
+      } catch (err) {
+          console.log(err)
+         
+      }
+  }
+
   render(){
     return (
       <Layout>
           <div className="container">
-              <form>
+              {this.state.loading ? "Loading..." : 
+              <div>
                 <h4 className="text-center">
                   PRODCUT
                 </h4>
@@ -30,13 +63,10 @@ class Product extends Component {
                     onClick = {()=>this.props.history.push('/product/create')}
                     >CREATE PRODUCT</button>
                 </div>
-                <Table/>
+                <Table data={this.state.response.data} getApi={this.getApi} loading={this.state.loading}/>
                 <Pagination {...this.state.response}/>
-                <Input name="product_name" placeholder="Product Name" errors={this.state.errors}
-                  type="text"
-                  setRef = {(value,input) => this[value] = input}
-                />
-              </form>
+              </div>
+              }
           </div>
       </Layout>
     );

@@ -23,7 +23,8 @@ class Input extends Component {
                 {error ?
                 <div className="invalid-feedback">
                     <label>
-                        {error[0]}
+                        {this.props.errors[this.props.name]}
+                        {/* {error[0]} */}
                     </label>
                 </div> 
                 : null}
