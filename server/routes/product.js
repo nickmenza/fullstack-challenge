@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
     'select count(*) as count_all from `product`'
   );
   const recentVotesQuery = await pool.query(
-    'SELECT * FROM product ORDER BY id DESC limit '+page*limit+","+limit
+    'SELECT product.*,category.category_name FROM product LEFT JOIN category on category.id = product.category_id ORDER BY id DESC limit '+page*limit+","+limit
   );
   const last_page = Math.ceil(count[0].count_all/limit)
 
