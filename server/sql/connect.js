@@ -17,7 +17,7 @@ const createPool = async () => {
     user: process.env.DB_USER, // e.g. 'my-db-user'
     password: process.env.DB_PASS, // e.g. 'my-db-password'
     database: process.env.DB_NAME, // e.g. 'my-database'
-    socketPath: `./cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}`,
+    socketPath: `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}`,
    
     connectionLimit: 5,
    

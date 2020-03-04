@@ -62,8 +62,8 @@ class Table extends Component {
                 </thead>
                 <tbody>
                     {this.props.data.map((value,index) =>
-                    <tr key={index}>
-                        <th scope="row">{index+1}</th>
+                    <tr key={value.id}>
+                        <th scope="row">{(index+1) + (this.props.limit * (this.props.current_page-1))}</th>
                         <td>{value.category_id}</td>
                         <td>{value.product_name}</td>
                         <td>{value.detail}</td>

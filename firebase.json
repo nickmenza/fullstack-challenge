@@ -1,8 +1,9 @@
 {
   "hosting": {
+    "cleanUrls": true,
     "rewrites": [ 
       {
-        "source": "/api/**",
+        "source": "/api{,/**}",
         "run": {
           "serviceId": "fullstack-challenge",  
           "region": "us-central1"   

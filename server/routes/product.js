@@ -6,18 +6,29 @@ import {connect_mysql} from '../sql/connect'
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
   let pool = await connect_mysql()
-  // console.log(pool)
-  const recentVotesQuery = await pool.query(
-    'SELECT * FROM product'
+  let page = req.query.page - 1;
+  let limit = req.query.limit;
+  console.log(page,limit)
+  // console.log(req)
+  const count = await pool.query(
+    'select count(*) as count_all from `product`'
   );
+  const recentVotesQuery = await pool.query(
+    'SELECT * FROM product ORDER BY id DESC limit '+page*limit+","+limit
+  );
+  const last_page = Math.ceil(count[0].count_all/limit)
 
-  console.log(recentVotesQuery)
-  res.json(recentVotesQuery);
+  // console.log(recentVotesQuery)
+  res.json({
+    data : recentVotesQuery,
+    last_page : last_page,
+    current_page : req.query.page ? req.query.page : 1
+  });
 });
 
 router.get('/:id', async (req, res, next) => {
   let pool = await connect_mysql()
-  console.log(req)
+  
   // const recentVotesQuery = await pool.query(
   //   'SELECT * FROM product'
   // );
@@ -25,7 +36,7 @@ router.get('/:id', async (req, res, next) => {
     `SELECT * FROM product WHERE id = ${req.params.id} limit 1`
   );
 
-  console.log(recentVotesQuery)
+  // console.log(recentVotesQuery)
   res.json(recentVotesQuery);
 });
 

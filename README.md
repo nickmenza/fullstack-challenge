@@ -28,7 +28,7 @@
 
 * ./cloud_sql_proxy -dir=/cloudsql --instances=$CLOUD_SQL_CONNECTION_NAME --credential_file=$GOOGLE_APPLICATION_CREDENTIALS
 
-* ./cloud_sql_proxy -dir=./cloudsql --instances=fullstack-challenge-479c4:us-central1:fullstackchallege --credential_file=./fullstack-challenge-479c4-897c0af18d89.json
+* ./cloud_sql_proxy -dir=/cloudsql --instances=fullstack-challenge-479c4:us-central1:fullstackchallege --credential_file=./fullstack-challenge-479c4-897c0af18d89.json
 
 
 ### docker command

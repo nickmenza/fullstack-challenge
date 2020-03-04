@@ -23,11 +23,21 @@ class CRoute extends Component {
         this.state = {
             loading :true,
         }
-        // this.apiGetUser = this.apiGetUser.bind(this)
+        this.create_UUID = this.create_UUID.bind(this)
     }
 
     componentDidMount(){
         this.getUsers()
+    }
+
+    create_UUID(){
+        var dt = new Date().getTime();
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (dt + Math.random()*16)%16 | 0;
+            dt = Math.floor(dt/16);
+            return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+        });
+        return uuid;
     }
 
     async getUsers () {
@@ -36,7 +46,7 @@ class CRoute extends Component {
         const config = { headers :{ Authorization : `bearer ${token ? token : ''}`} }
         console.log(config)
         try {
-            let res = await axios.get("/api/user",config);
+            let res = await axios.get("/api/user?v="+this.create_UUID(),config);
             // this.state.user = res.data
             // console.log(res)
             this.props.SET_USER({user : res.data})

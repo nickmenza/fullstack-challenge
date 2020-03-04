@@ -14,20 +14,31 @@ class Product extends Component {
           response : {
             current_page : 1,
             last_page : 1,
+            limit : 15,
             data :[]
           }
       }
       this.getApi = this.getApi.bind(this)
+      this.create_UUID = this.create_UUID.bind(this)
   }
 
   componentWillMount(){
     this.getApi()
   }
 
-  async getApi(){
+  async getApi(page = 1){
       // console.log(this.props)
       let token = localStorage.getItem('token');
-      const config = { headers :{ Authorization : `bearer ${token ? token : ''}`} }
+      const config = { 
+        headers :{ 
+          Authorization : `bearer ${token ? token : ''}`
+        }, 
+        params : {
+          uid : this.create_UUID(),
+          page : page,
+          limit : this.state.response.limit
+        }
+      }
       console.log(config)
       try {
           let res = await axios.get("/api/product",config);
@@ -37,7 +48,7 @@ class Product extends Component {
             ...this.state,
             response : {
               ...this.state.response,
-              data : res.data,
+              ...res.data
             },
             loading : false
 
@@ -47,6 +58,16 @@ class Product extends Component {
           console.log(err)
          
       }
+  }
+
+  create_UUID(){
+      var dt = new Date().getTime();
+      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = (dt + Math.random()*16)%16 | 0;
+          dt = Math.floor(dt/16);
+          return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+      });
+      return uuid;
   }
 
   render(){
@@ -63,8 +84,8 @@ class Product extends Component {
                     onClick = {()=>this.props.history.push('/product/create')}
                     >CREATE PRODUCT</button>
                 </div>
-                <Table data={this.state.response.data} getApi={this.getApi} loading={this.state.loading}/>
-                <Pagination {...this.state.response}/>
+                <Table {...this.state.response} getApi={this.getApi} loading={this.state.loading}/>
+                <Pagination {...this.state.response} chagePage = {(page)=>this.getApi(page)}/>
               </div>
               }
           </div>
